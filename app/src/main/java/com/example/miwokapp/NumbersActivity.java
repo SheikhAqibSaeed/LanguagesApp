@@ -3,10 +3,7 @@ package com.example.miwokapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -15,33 +12,28 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.word_list);
 
-        ArrayList<String> words = new ArrayList<String>();
-        words.add("One");
-        words.add("Two");
-        words.add("Three");
-        words.add("Four");
-        words.add("Five");
-        words.add("Six");
-        words.add("Saven");
-        words.add("Eight");
-        words.add("Nine");
-        words.add("Ten");
+        ArrayList<Word> words = new ArrayList<Word>();
 
-        words.add("Five");
-        words.add("Six");
-        words.add("Saven");
-        words.add("Eight");
-        words.add("Nine");
-        words.add("Ten");
+        words.add(new Word("One", "ایک"));
+        words.add(new Word("Two", "دو"));
+        words.add(new Word("Three", "تین"));
+        words.add(new Word("Four", "چار"));
+        words.add(new Word("Five", "پانچ"));
+        words.add(new Word("Six", "چھ"));
+        words.add(new Word("Seven", "سات"));
+        words.add(new Word("Eight", "آٹھ"));
+        words.add(new Word("Nine", "نو"));
+        words.add(new Word("Ten", "دس"));
+
 
         //LinearLayout rootView = (LinearLayout)findViewById(R.id.rootView);
 
-        ArrayAdapter<String> itemAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+        WordAdapter Adapter = new WordAdapter(this, words);
 
         ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(itemAdapter);
+        listView.setAdapter(Adapter);
 
         //3rd method is best method
 //        for (int index=0; index<words.size(); index++){
