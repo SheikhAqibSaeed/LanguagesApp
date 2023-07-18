@@ -16,16 +16,16 @@ public class NumbersActivity extends AppCompatActivity {
 
         ArrayList<Word> words = new ArrayList<Word>();
 
-        words.add(new Word("One", "ایک"));
-        words.add(new Word("Two", "دو"));
-        words.add(new Word("Three", "تین"));
-        words.add(new Word("Four", "چار"));
-        words.add(new Word("Five", "پانچ"));
-        words.add(new Word("Six", "چھ"));
-        words.add(new Word("Seven", "سات"));
-        words.add(new Word("Eight", "آٹھ"));
-        words.add(new Word("Nine", "نو"));
-        words.add(new Word("Ten", "دس"));
+        words.add(new Word("One",  "ایک",R.drawable.number_one));
+        words.add(new Word("Two", "دو",R.drawable.number_two));
+        words.add(new Word("Three", "تین",R.drawable.number_three));
+        words.add(new Word("Four", "چار",R.drawable.number_four));
+        words.add(new Word("Five", "پانچ",R.drawable.number_five));
+        words.add(new Word("Six", "چھ",R.drawable.number_six));
+        words.add(new Word("Seven", "سات",R.drawable.number_seven));
+        words.add(new Word("Eight", "آٹھ",R.drawable.number_eight));
+        words.add(new Word("Nine", "نو",R.drawable.number_nine));
+        words.add(new Word("Ten", "دس",R.drawable.number_ten));
 
 
         //LinearLayout rootView = (LinearLayout)findViewById(R.id.rootView);

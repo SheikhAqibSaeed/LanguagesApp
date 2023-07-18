@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,21 +33,30 @@ public class  WordAdapter extends ArrayAdapter<Word> {
                     R.layout.list_items, parent, false);
         }
 
-        // Get the {@link AndroidFlavor} object located at this position in the list
+        // Get the {@link WordAdopter} object located at this position in the list
         Word currentWord = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID version_name
         TextView urduTextView = (TextView) listItemView.findViewById(R.id.urdu_text);
-        // Get the version name from the current AndroidFlavor object and
+        // Get the version name from the current adopter object and
         // set this text on the name TextView
         urduTextView.setText(currentWord.getUrduTranslation());
 
         // Find the TextView in the list_item.xml layout with the ID version_number
         TextView defaultTextView = (TextView) listItemView.findViewById(R.id.default_text);
-        // Get the version number from the current AndroidFlavor object and
+        // Get the version number from the current adopter object and
         // set this text on the number TextView
         defaultTextView.setText(currentWord.getDefaultTranslation());
 
+        // Find the TextView in the list_item.xml layout with the ID version_number
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
+        if (currentWord.hasImage()){
+            imageView.setImageResource(currentWord.getImagesResource());
+            imageView.setVisibility(View.VISIBLE);
+        }
+        else {
+            imageView.setVisibility(View.GONE);
+        }
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView
         return listItemView;
