@@ -28,7 +28,7 @@ public class FamilyActivity extends AppCompatActivity {
         words.add(new Word("Younger Brother", "چھوٹا بھائی",R.drawable.family_younger_brother));
 
 
-        WordAdapter Adapter = new WordAdapter(this, words);
+        WordAdapter Adapter = new WordAdapter(this, words, R.color.category_family);
 
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(Adapter);
