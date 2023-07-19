@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:minHeight="88dp"
-    android:background="@color/tan_background">
+    android:minHeight="88dp">
 
     <ImageView
         android:layout_width="@dimen/list_item_height"

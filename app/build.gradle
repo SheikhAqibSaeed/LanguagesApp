@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.miwokapp'
+    namespace 'com.example.urduenglish'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.miwokapp"
+        applicationId "com.example.urduenglish"
         minSdk 19
         targetSdk 33
         versionCode 1
