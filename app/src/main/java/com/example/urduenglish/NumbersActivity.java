@@ -91,6 +91,12 @@ public class NumbersActivity extends AppCompatActivity {
 //        rootView.addView(wordsView3);
 //        index++;
     }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        releaseMediaPlayer();
+    }
     private void releaseMediaPlayer(){
         if(mMediaPlayer!=null){
             mMediaPlayer.release();
