@@ -13,42 +13,6 @@
         android:theme="@style/Theme.TranslationApp"
         tools:targetApi="31">
         <activity
-            android:label="@string/category_numbers"
-            android:name=".NumbersActivity"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PERENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
-        </activity>
-        <activity
-            android:label="@string/category_phrases"
-            android:name=".PhrasesActivity"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PERENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
-        </activity>
-        <activity
-            android:label="@string/category_family"
-            android:name=".FamilyActivity"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PERENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
-        </activity>
-        <activity
-            android:label="@string/category_colors"
-            android:name=".ColorActivity"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PERENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
-        </activity>
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

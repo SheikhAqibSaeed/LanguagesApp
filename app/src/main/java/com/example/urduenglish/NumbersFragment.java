@@ -1,21 +1,24 @@
 package com.example.urduenglish;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.media.RemoteController;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class NumbersActivity extends AppCompatActivity {
+public class NumbersFragment extends Fragment {
 
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private MediaPlayer mMediaPlayer;
     private AudioManager mAudioManager;
 
@@ -42,13 +45,22 @@ public class NumbersActivity extends AppCompatActivity {
         }
     };
 
+
+    public NumbersFragment() {
+        // Required empty public constructor
+    }
+
+    // TODO: Rename and change types and number of parameters
+
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
 
-        setContentView(R.layout.word_list);
-
-        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
         final ArrayList<Word> words = new ArrayList<Word>();
 
         words.add(new Word("One", "ایک", R.drawable.number_one, R.raw.one));
@@ -65,9 +77,9 @@ public class NumbersActivity extends AppCompatActivity {
 
         //LinearLayout rootView = (LinearLayout)findViewById(R.id.rootView);
 
-        WordAdapter Adapter = new WordAdapter(this, words, R.color.category_numbers);
+        WordAdapter Adapter = new WordAdapter(getActivity(), words, R.color.category_numbers);
 
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
         listView.setAdapter(Adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -82,7 +94,7 @@ public class NumbersActivity extends AppCompatActivity {
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
 
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudtioResource());
+                    mMediaPlayer = MediaPlayer.create(getActivity(), word.getAudioResourceId());
                     mMediaPlayer.start();
                     mMediaPlayer.setOnCompletionListener(mComplitionListener);
 //                Toast.makeText(NumbersActivity.this, "List Item Clicked", Toast.LENGTH_SHORT).show();
@@ -90,42 +102,13 @@ public class NumbersActivity extends AppCompatActivity {
             }
         });
 
-        //3rd method is best method
-//        for (int index=0; index<words.size(); index++){
-//            TextView wordsView1 = new TextView(this);
-//            wordsView1.setText(words.get(index));
-//            rootView.addView(wordsView1);
-//        }
-
-//        int index = 0;
-//
-//        // Executing for 2nd method
-//        while (index<words.size()){
-//            TextView wordsView1 = new TextView(this);
-//            wordsView1.setText(words.get(index));
-//            rootView.addView(wordsView1);
-//            index++;
-//        }
-        // Executing for 1s method
-//        TextView wordsView1 = new TextView(this);
-//        wordsView1.setText(words.get(index));
-//        rootView.addView(wordsView1);
-//        index++;
-//
-//        TextView wordsView2 = new TextView(this);
-//        wordsView2.setText(words.get(index));
-//        rootView.addView(wordsView2);
-//        index++;
-//
-//        TextView wordsView3 = new TextView(this);
-//        wordsView3.setText(words.get(index));
-//        rootView.addView(wordsView3);
-//        index++;
+        return rootView;
     }
 
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
+
         releaseMediaPlayer();
     }
 
